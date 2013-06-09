@@ -2,7 +2,7 @@ package Net::MBlox;
 use strict;
 use warnings;
 
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 # ABSTRACT: link to the MBlox api for sending SMS
 
@@ -17,7 +17,7 @@ has 'consumer_key' => ( is => 'rw', predicate => 1, required => 1);
 has 'consumer_secret' => ( is => 'rw', predicate => 1, required => 1);
 has 'app_id' => ( is => 'rw', predicate => 1, required => 1);
 has 'access_token' => ( is => 'rw', predicate => 1);
-has 'api_url' => (is => 'ro', default => 'https://api.mblox.com/v1/apps/');
+has 'api_url' => (is => 'ro', default => sub { 'https://api.mblox.com/v1/apps/' });
 
 has 'ua' => (
   is      => 'lazy',
@@ -119,7 +119,7 @@ Net::MBlox - link to the MBlox api for sending SMS
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 

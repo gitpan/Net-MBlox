@@ -29,7 +29,7 @@ no_index:
 provides:
   Net::MBlox:
     file: lib/Net/MBlox.pm
-    version: 0.001
+    version: 0.002
 requires:
   HTTP::Request: 0
   HTTP::Request::Common: 0
@@ -44,4 +44,4 @@ resources:
   bugtracker: https://github.com/purge/net-mblox/issues
   homepage: https://metacpan.org/release/Net-MBlox
   repository: git://github.com/purge/net-mblox.git
-version: 0.001
+version: 0.002
