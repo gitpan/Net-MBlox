@@ -17,6 +17,7 @@ my @modules = qw(
   HTTP::Request
   HTTP::Request::Common
   JSON::XS
+  LWP::Protocol::https
   List::Util
   MIME::Base64
   Moo

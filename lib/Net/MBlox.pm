@@ -2,7 +2,7 @@ package Net::MBlox;
 use strict;
 use warnings;
 
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 # ABSTRACT: link to the MBlox api for sending SMS
 
@@ -16,7 +16,7 @@ use Moo;
 has 'consumer_key' => ( is => 'rw', predicate => 1, required => 1);
 has 'consumer_secret' => ( is => 'rw', predicate => 1, required => 1);
 has 'app_id' => ( is => 'rw', predicate => 1, required => 1);
-has 'access_token' => ( is => 'rw', predicate => 1);
+has 'access_token' => ( is => 'rw', predicate => 1, clearer => 1);
 has 'api_url' => (is => 'ro', default => sub { 'https://api.mblox.com/v1/apps/' });
 
 has 'ua' => (
@@ -93,7 +93,8 @@ sub get_token {
 
     #if denied, re-get token, once, or fail permanently.
     if($res->code == 401 && $retries++ < 10) {
-      $self->get_token;
+      #invalidate token
+      $self->clear_access_token;
       $res = $self->query(@_);
     }
     #warn $res->code;
@@ -119,7 +120,7 @@ Net::MBlox - link to the MBlox api for sending SMS
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

@@ -30,13 +30,14 @@ my %WriteMakefileArgs = (
     "HTTP::Request" => 0,
     "HTTP::Request::Common" => 0,
     "JSON::XS" => 0,
+    "LWP::Protocol::https" => 0,
     "MIME::Base64" => 0,
     "Moo" => 0,
     "WWW::Mechanize::GZip" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.002",
+  "VERSION" => "0.003",
   "test" => {
     "TESTS" => "t/*.t"
   }
