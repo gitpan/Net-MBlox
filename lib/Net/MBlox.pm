@@ -2,7 +2,7 @@ package Net::MBlox;
 use strict;
 use warnings;
 
-our $VERSION = '0.003'; # VERSION
+our $VERSION = '0.004'; # VERSION
 
 # ABSTRACT: link to the MBlox api for sending SMS
 
@@ -74,11 +74,11 @@ sub get_token {
 
     my $data = shift @args;
     my $ua = $self->ua;
-    $ua->default_header('Content-Type', "application/json");
 
     ## always go with login:pass or access_token (for private repos)
     unless ($self->has_access_token) { $self->get_token }
 
+    $ua->default_header('Content-Type', "application/json");
     $ua->default_header('Authorization', "Bearer " . $self->access_token);
 
     my $req = HTTP::Request->new( $request_method, $url );
@@ -120,7 +120,7 @@ Net::MBlox - link to the MBlox api for sending SMS
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 

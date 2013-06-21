@@ -2,7 +2,7 @@ NAME
     Net::MBlox - link to the MBlox api for sending SMS
 
 VERSION
-    version 0.003
+    version 0.004
 
 SYNOPSIS
       use WWW::MBlox;
